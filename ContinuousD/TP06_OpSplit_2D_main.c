@@ -203,7 +203,7 @@ int main(int argc, char **argv)
          {
          for (n = 1; n <= N; n++)
             {
-            new_Vm[n] = u[n][V] + half_dtlong * diffusion_2D( u, nneighb, n, N, D[n], dx2 );
+            new_Vm[n] = u[n][V] + half_dtlong * diffusion_2D_modD( u, nneighb, n, N, D, dx2 );
             dVdt[n] = new_Vm[n] - u[n][V];
             }
          }
@@ -299,7 +299,7 @@ int main(int argc, char **argv)
         {
         old_Vm[n] = new_Vm[n];
         dummy1 = u[n][V];
-        dummy2 = dummy1 + half_dtlong * diffusion_2D( u, nneighb, n, N, D[n], dx2 );
+        dummy2 = dummy1 + half_dtlong * diffusion_2D( u, nneighb, n, N, D, dx2 );
         new_Vm[n] = dummy2;
         }
 
@@ -314,7 +314,7 @@ int main(int argc, char **argv)
       for (n = 1; n <= N; n++)
         {
         dummy1 = u[n][V];
-        dummy2 = dummy1 + half_dtlong * diffusion_2D( u, nneighb, n, N, D[n], dx2 );
+        dummy2 = dummy1 + half_dtlong * diffusion_2D( u, nneighb, n, N, D, dx2 );
         new_Vm[n] = dummy2;
         dVdt[n] = dummy2 - old_Vm[n];
         }
