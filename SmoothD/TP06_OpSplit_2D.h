@@ -85,7 +85,7 @@ void initialise_spiral_2D( double **u, int N, int ny, int nx );
 
 int create_TP06_lookup_OpSplit_2D( double **lookup );
 double calculate_TP06_current_OpSplit( double *U, double dt, double **lookup, int celltype, double stimCurrent );
-double diffusion_2D( double **u, int **nneighb, int n, int N, double D, double dx2 );
+double diffusion_2D_modD2( double **u, int **nneighb, int n, int N, double *D, double dx2 );
 int free_arrays( double **u, int N, int num_parameters, double **lookup, int voltage_steps, int num_lookup );
 
 /* checkpointing */
